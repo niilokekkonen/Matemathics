@@ -13,7 +13,7 @@ class Math:
     #Calculates the missing side of a triangle
     def Pythagorean(self):
        
-        print('Do you want to use the pythagorean theroem? ' \
+        print('Do you want to proceed?' \
         '\nSoon you can enter the lengths of the sides' )
         question = str(input('answer yes or no, please\n')).strip().lower()
 
@@ -41,7 +41,7 @@ class Math:
                                 if self.c is None:
 
                                     c = math.sqrt(self.a**2 + self.b**2)
-                                    print(f'The length of the hypotenus{c}')
+                                    print(f'The length of the hypotenus is: {c}')
                                     self.c = c
 
                                     quest2 = str(input('Do you want to know all the angles?\n'))
@@ -87,7 +87,6 @@ class Math:
 
 
 
-#c = float(input('Enter side c'))
 
 
 
