@@ -30,10 +30,10 @@ class Math:
                if ans_b == 'yes':               
                     a = float(input('Enter side a:'))
                     b = float(input('Enter side b:'))
-                    print(f'side a: {a}\nside b: {b}')
                     self.a = a
                     self.b = b
                     self.c = None
+                    print(f'side a: {self.a}\nside b: {self.b}')
 
                     try:
                         if self.a is not None:
@@ -67,16 +67,110 @@ class Math:
                                         print(f'Beta results: {result['beta']}')
                                         print(f'Gamma results: {result['gamma']}')
 
+                                        time.sleep(3)
+                    except Exception as e:
+                       print('Error', e)
 
+            #a^2 = c^2 - b^2
+            if ans_b == 'yes':
+               if ans_c == 'yes':               
+                    b = float(input('Enter side b:'))
+                    c = float(input('Enter side c:'))
+                    self.a = None
+                    self.b = b
+                    self.c = c
+                    print(f'side c: {self.c}\nside b: {self.b}')
+
+                    try:
+                        if self.a is None:
+                            if self.b is not None:
+                                if self.c is not None:
+
+                                    a = math.sqrt(self.c**2 - self.b**2)
+                                    print(f'The length of the opposite side is: {a}')
+                                    self.a = a
+
+                                    quest2 = str(input('Do you want to know all the angles?\n'))
+                                    if quest2 == 'yes':
+                                        alpha_rads = math.acos(self.b/self.c)
+                                        beta_rads = math.atan(self.b/self.a)
                                     
+                                        alpha_deg = math.degrees(alpha_rads)    
+                                        beta_deg = math.degrees(beta_rads)
+
+
+                                        result = {
+                                            'alpha':{'radians': alpha_rads, 
+                                                     'degrees' : alpha_deg },
+
+                                            'beta':{'radians': beta_rads, 
+                                                     'degrees' : beta_deg },
+                                            'gamma':{'radians': self.gamma_rad,
+                                                     'degrees': self.gamma_deg}
+                                        }
+                                        
+                                        print(f'Alpha results: {result['alpha']}')
+                                        print(f'Beta results: {result['beta']}')
+                                        print(f'Gamma results: {result['gamma']}')
+
+                                        time.sleep(3)
+                                    
+
+                    except Exception as e:
+                       print('Error', e)
+            
+
+
+            if ans_a == 'yes':
+               if ans_c == 'yes':               
+                    a = float(input('Enter side a:'))
+                    c = float(input('Enter side c:'))
+                    self.a = a
+                    self.b = None
+                    self.c = c
+                    print(f'side a: {self.a}\nside c: {self.c}')
+
+                    try:
+                        if self.a is not None:
+                            if self.b is None:
+                                if self.c is not None:
+
+                                    b = math.sqrt(self.c**2 - self.a**2)
+                                    print(f'The length of the adjacent side is: {b}')
+                                    self.b = b
+
+                                    quest2 = str(input('Do you want to know all the angles?\n'))
+                                    if quest2 == 'yes':
+                                        alpha_rads = math.acos(self.b/self.c)
+                                        beta_rads = math.atan(self.b/self.a)
+                                    
+                                        alpha_deg = math.degrees(alpha_rads)    
+                                        beta_deg = math.degrees(beta_rads)
+
+
+                                        result = {
+                                            'alpha':{'radians': alpha_rads, 
+                                                     'degrees' : alpha_deg },
+
+                                            'beta':{'radians': beta_rads, 
+                                                     'degrees' : beta_deg },
+                                            'gamma':{'radians': self.gamma_rad,
+                                                     'degrees': self.gamma_deg}
+                                        }
+                                        
+                                        print(f'Alpha results: {result['alpha']}')
+                                        print(f'Beta results: {result['beta']}')
+                                        print(f'Gamma results: {result['gamma']}')
+
+                                        time.sleep(3)
                                     
 
                     except Exception as e:
                        print('Error', e)
 
-
         else:
             print('going back....')
+            time.sleep(5)
             
                 
             
