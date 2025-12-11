@@ -1,6 +1,6 @@
 # Math 
 
-Currently serves only one purpose. To calculate your missing sides of a triangle.
+Currently serves only one purpose. To calculate the missing side of a triangle.
 It also calculates the angles inside of that triangle.
 
 # Features
