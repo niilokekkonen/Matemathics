@@ -5,7 +5,7 @@ It also calculates the angles inside of that triangle.
 
 # Features
 - Solve right triangles (Pythagorean theorem + angles)
-  - It asks you to place the triangles and uses OOP to filter your input.
+  - It asks you to place the sides of your triangle and uses OOP to filter your input.
 
 
 # Installation / How to run
