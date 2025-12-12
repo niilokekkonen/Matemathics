@@ -1,7 +1,7 @@
 # Math 
 
-Currently serves only two purposes. To calculate the missing side of a triangle.
-It also calculates the angles inside of that triangle. 
+Currently serves only two purposes. To calculate the missing side of a triangle, angles 
+and solves a right triangle if only one side and one angle are known
 
 
 # Features
