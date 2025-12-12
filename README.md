@@ -18,7 +18,8 @@ and solves a right triangle if only one side and one angle are known
 3. Then the pythagorean theorem starts automatically.
 
 
-#Feedback
+
+# Feedback!
 If you try this out, please leave feedback on how it worked and what could be enhanced, THANKS!
 
 
