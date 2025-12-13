@@ -1,5 +1,5 @@
 import math, time
-from input_check import valid_float
+from utils import valid_float, pretty_dict
 
 #Simple version 1.0
 
@@ -173,7 +173,7 @@ class Triangle:
                         self.c = float(c)
                         print(f'B side is: {self.b:.3f}')
                         beta = 90 - math.degrees(angle) 
-                        print(beta, ' Degrees')
+                        print(f'Beta: {beta}')
                         #Beta angles calculations
                     elif use_beta:
                         a = self.b / math.tan(angle)
@@ -183,7 +183,7 @@ class Triangle:
                         self.c = float(c)
                         print(f'C side is: {self.c:.3f}')
                         alpha = 90 - math.degrees(angle) 
-                        print(alpha, ' Degrees')
+                        print(f'Alpha: {alpha}')
                      
         if self.a is  None:
             if self.b is None:
@@ -197,7 +197,7 @@ class Triangle:
                         self.b = float(b)
                         print(f'B side is: {self.b:.3f}')
                         beta = 90 - math.degrees(angle) 
-                        print(beta, ' Degrees')
+                        print(f'Beta {beta}')
                         #Beta angles calculations
                     elif use_beta:
                         a = self.c * math.cos(angle)
@@ -207,22 +207,10 @@ class Triangle:
                         self.b = float(b)
                         print(f'B side is: {self.b:.3f}')
                         alpha = 90 - math.degrees(angle) 
-                        print(alpha, ' Degrees')
+                        print(f'Alpha: {alpha}')
                                   
-                           
 
-def pretty_dict(d_i_c_t):
-    data = d_i_c_t
-    for k, v in data.items():
-        print(f'{k}:{v}')
-        
     
-
-       
-
-
-
-
 
 
 
