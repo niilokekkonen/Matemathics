@@ -1,5 +1,5 @@
 import math, time
-
+from input_check import valid_float
 
 #Simple version 1.0
 
@@ -52,7 +52,10 @@ class Triangle:
         if self.a is None:
             if self.b is not None:
                 if self.c is not None:
-
+                    if self.b > self.c:
+                        return {'C needs to be bigger than -> ': self.c}
+                    
+                    
                     a = math.sqrt(self.c**2 - self.b**2)
                     print(f'The length of the opposite side is: {a:.2f}')
                     self.a = a
@@ -88,6 +91,8 @@ class Triangle:
         if self.a is not None:
             if self.b is None:
                 if self.c is not None:
+                    if self.a > self.c:
+                        return {'C needs to be bigger than -> ': self.c}
 
                     b = math.sqrt(self.c**2 - self.a**2)
                     print(f'The length of the adjacent side is: {b:.2f}')
@@ -144,7 +149,7 @@ class Triangle:
                         self.b = float(b)
                         print(f'B side is: {self.b:.3f}')
                         beta = 90 - math.degrees(angle) 
-                        print(beta, ' Degrees')
+                        print(f'Beta: {beta}')
                         #Beta angles calculations
                     elif use_beta:
                         b = self.a * math.tan(angle)
@@ -154,7 +159,7 @@ class Triangle:
                         self.c = float(c)
                         print(f'C side is: {self.c:.3f}')
                         alpha = 90 - math.degrees(angle) 
-                        print(alpha, ' Degrees')
+                        print(f'Alpha: {alpha}')
 
         if self.a is None:
             if self.b is not None:
@@ -230,49 +235,66 @@ obj = Triangle()
 
 while calc: 
     print("Welcome to the calculator")
-    choice = str(input('Pythagorean theorem = 1\nRight triangle calc = 2\n')).strip()
-    print('Press enter if you need to skip :)')
+    choice = str(input('Pythagorean theorem = 1\nRight triangle calc = 2\nquit = 3\n')).strip()
+
     time.sleep(1)
-    print('please enter the sides as shown, thanks!')
     if choice == '1':
+
+        print('please enter the sides as shown, thanks!')
         print('What sides of the triangle you know?')
+        print('Press enter if you need to skip :)')
+
         known = input('ab or ac or bc?\n').strip().lower()
         #a and b sides
         if 'a' in known and 'b' in known:
             val = input('Enter the value of side a:\n')
             val2 = input('Enter the value of side b:\n')
-            a = float(val)
-            b = float(val2)
-            save = Triangle(a = a, b = b)
-            res = save.Pythagorean()
-            pretty_dict(res)
-          
+            a = valid_float(input_str=val)
+            b = valid_float(input_str=val2)
+            if a[0] == True and b[0] == True:
+                a = a[1]
+                b= b[1]
+                save = Triangle(a = a, b = b)
+                res = save.Pythagorean()
+                pretty_dict(res)
+            else:
+                print('Not valid numbers')
         #b and c sides
         elif 'b' in known and 'c' in known:
             val = input('Enter the length of side b:\n')
             val2 = input('Enter the length of side c:\n')
-            b = float(val)
-            c = float(val2)
-            save = Triangle(b=b, c=c)
-            res = save.Pythagorean()
-            pretty_dict(res)            
+            b = valid_float(input_str=val)
+            c = valid_float(input_str=val2)  
+            if b[0] == True and c[0] == True:
+                b = b[1]
+                c = c[1]
+                save = Triangle(b = b, c = c)
+                res = save.Pythagorean()
+                pretty_dict(res)
+            else:
+                print('Not valid numbers')           
         #a and c sides
         elif 'a' in known and 'c' in known:
             val = input('Enter the length of side a:\n')
             val2 = input('Enter the length of side c:\n')
-            a = float(val)
-            c = float(val2)    
-            save = Triangle(a=a, c=c)
-            res = save.Pythagorean()
-            pretty_dict(res)
+            a = valid_float(input_str=val)
+            c = valid_float(input_str=val2)    
+            if a[0] == True and c[0] == True:
+                 a = a[1]
+                 c = c[1]
+                 save = Triangle(a = a, c = c)
+                 res = save.Pythagorean()
+                 pretty_dict(res)
+            else:
+                print('Not valid numbers')
         else:
             print('Wrong input:')   
     elif choice == '2':
-        print('What side of the triangle you know?')
-        known = input('a or b or c?\n').strip().lower()
         print('please enter the side as shown, thanks!')
-        
-        if 1 < len(known) < 1:
+        print('What side of the triangle you know?')
+        print('Press enter if you need to skip :)')
+        known = input('a or b or c?\n').strip().lower()        
+        if len(known) < 1 or len(known) > 1:
             print('Wrong input...')
         
         if 'a' in known:
@@ -347,6 +369,7 @@ while calc:
                     save.one_side(beta=num, radians=True)
                 else:
                     save.one_side(beta=num, radians=False)
-
+    elif choice == '3':
+        calc = False
 
 
